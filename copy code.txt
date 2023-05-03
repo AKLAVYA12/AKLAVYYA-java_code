@@ -1,0 +1,61 @@
+one.jsp
+
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<%
+String un=request.getParameter("t1");
+out.println("Welcome To Dynamic Web Page <br> Mr "+un);
+
+try
+{
+Class.forName("Com.mysql.cj.jdbc.Driver");	
+ Connection connection=DriverManager.getConnection(
+		"jdbc:mysql://localhost:3306/chandu","root","root");
+ System.out.println("Connection success");
+ 
+
+}
+catch(Exception e)
+{
+	System.out.println(e);
+}
+%>
+</body>
+</html>
+
+
+
+
+Index.html
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Dynamic Web Page</title>
+</head>
+<body>
+<form action="one.jsp" method="post">
+<h1>Register Here</h1>
+Usertype Name <input type ="text" name="t1">
+<br>
+Password <input type="password" name="t2">
+<br>
+Mobile <input type="text" name="t3">
+<br>
+Email <input type="text" name="t4"><br>
+<input type="submit"><br>
+</form>
+</body>
+</html>
